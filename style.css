@@ -1,31 +1,38 @@
-/* Reset Geral */
+/* Variáveis para facilitar a manutenção */
+:root {
+    --primary-color: #e84c3d; /* Vermelho Climartek */
+    --secondary-color: #2ecc71; /* Verde WhatsApp / Sucesso */
+    --dark-color: #2c3e50;
+    --light-gray: #f4f7f6;
+    --text-color: #444;
+    --transition: all 0.3s ease;
+}
+
+/* Reset e Base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Lato', sans-serif;
-    color: #404040;
-    padding-top: 80px; /* IMPORTANTE: Empurra o site para baixo para não ficar escondido atrás da barra branca */
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 85px;
 }
 
 .container {
     max-width: 1170px;
     margin: 0 auto;
-    padding: 0 15px;
-    text-align: center;
+    padding: 0 20px;
 }
 
-/* --- BARRA BRANCA FIXA (NAVBAR) --- */
+/* --- NAVBAR --- */
 .navbar {
-    background: #fff;       /* Fundo Branco */
-    position: fixed;        /* Fixa no topo */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 85px;
-    z-index: 1000;          /* Fica por cima de tudo */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra leve */
-    display: flex;
-    align-items: center;
+    background: #fff;
+    position: fixed;
+    top: 0; width: 100%; height: 85px;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    display: flex; align-items: center;
 }
 
 .nav-flex {
@@ -33,158 +40,132 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    text-align: left; /* Alinha logo à esquerda */
 }
 
-.logo-area {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo {
+.logo-area .logo {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #333;
-    text-transform: none; /* Mantém maiúscula/minúscula original */
+    color: var(--primary-color);
 }
 
-.sub-logo {
-    font-size: 0.8rem;
-    color: #666;
-    font-weight: 300;
-}
+.sub-logo { font-size: 0.85rem; color: #777; display: block; }
 
-.menu {
-    list-style: none;
-    display: flex;
-}
-
+.menu { list-style: none; display: flex; gap: 25px; }
 .menu li a {
     text-decoration: none;
-    color: #333;
-    font-weight: 400;
+    color: var(--dark-color);
+    font-weight: 700;
     font-size: 0.9rem;
     text-transform: uppercase;
+    transition: var(--transition);
 }
+.menu li a:hover { color: var(--primary-color); }
 
-.menu li a:hover {
-    color: #000;
-}
-
-/* --- BANNER / HERO (Imagem do Ar) --- */
+/* --- HERO SECTION --- */
 .hero {
-    /* Troque 'fundo-ar.jpg' pelo nome da sua imagem */
-    background-image: url('fundo-ar.jpg'); 
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2000&auto=format&fit=crop'); 
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    height: 550px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.overlay {
-    /* Efeito escuro leve para o texto aparecer */
-    background: rgba(255, 255, 255, 0.1); 
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: white;
 }
 
 .main-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #fff; /* Texto Branco */
-    text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para leitura */
-    max-width: 900px;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
 }
+
+.btn-cta {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(232, 76, 61, 0.4);
+}
+.btn-cta:hover { transform: translateY(-3px); background: #c0392b; }
 
 /* --- SERVIÇOS --- */
-.servicos { padding: 80px 0; background-color: #fff; }
+.servicos { padding: 100px 0; background: var(--light-gray); }
 .section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.2rem;
-    color: #333;
-    margin-bottom: 60px;
-    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--dark-color);
 }
+
 .grid-servicos {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
+
 .card-servico {
-    flex: 1;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: white;
+    padding: 40px 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
+
+.card-servico:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
 .icon-circle {
-    width: 120px;
-    height: 120px;
-    border: 4px solid #e0e0e0;
+    width: 90px; height: 90px;
+    background: var(--light-gray);
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    transition: 0.3s;
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--primary-color);
+    font-size: 35px;
 }
-.icon-circle i { font-size: 45px; color: #ff6b6b; }
-.card-servico:hover .icon-circle { transform: scale(1.1); border-color: #ff6b6b; }
-.card-servico h3 { font-size: 1rem; text-transform: uppercase; margin-bottom: 15px; font-weight: 700; }
-.line-detail { width: 50px; height: 2px; background-color: #ff6b6b; }
 
-/* --- ASSISTÊNCIA (VERDE) --- */
-.assistencia { background-color: #58d68d; padding: 60px 0; color: white;}
-.assistencia-title { font-size: 1.4rem; margin-bottom: 40px; font-weight: 400; }
-.img-container { background: white; padding: 15px; border-radius: 10px; display: inline-block; }
-.img-container img { max-width: 100%; height: auto; }
-.zoom-hover img { transition: transform 0.5s ease; }
-.zoom-hover:hover img { transform: scale(1.01); }
+/* --- WHATSAPP FLUTUANTE --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.whatsapp-float:hover { transform: scale(1.1); background: #128c7e; }
 
-/* --- CONTATO (VERMELHO) --- */
-.contato-bar { background-color: #e84c3d; padding: 50px 0; color: white; }
-.contato-bar h3 { font-size: 1.8rem; margin-bottom: 20px; }
-.whatsapp-box { font-size: 1.3rem; font-weight: 700; display: flex; justify-content: center; align-items: center; gap: 15px; }
-.whatsapp-box i { font-size: 2rem; }
+/* --- FOOTER --- */
+footer { background: #1a1a1a; color: #bdc3c7; padding: 60px 0 20px; }
+.footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+.footer-item h4 { color: white; margin-bottom: 15px; }
+
+/* Animação Simples */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
 .pulse { animation: pulse 2s infinite; }
 
-/* --- RODAPÉ --- */
-footer { background-color: #222; color: #999; padding: 40px 0 20px; }
-.footer-grid { display: flex; justify-content: space-around; flex-wrap: wrap; margin-bottom: 20px; }
-.footer-item { margin: 10px; }
-.copyright { border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; }
-
-/* RESPONSIVO */
+/* Mobile */
 @media (max-width: 768px) {
-    .nav-flex { flex-direction: column; gap: 10px; }
-    .main-title { font-size: 1.5rem; }
-    body { padding-top: 120px; } /* Aumenta espaço no mobile pois o menu fica maior */
-}
-
-.hero {
-    /* Coloquei uma imagem de exemplo de Ar Condicionado aqui para você testar. 
-       Depois você pode trocar pelo nome do seu arquivo local (ex: 'fundo-ar.jpg') */
-    background-image: url('https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2727&auto=format&fit=crop'); 
-    
-    /* O SEGREDO ESTÁ AQUI EMBAIXO: */
-    background-attachment: fixed; 
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; /* Importante para a imagem não repetir */
-    height: 550px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .main-title { font-size: 2rem; }
+    .nav-flex { flex-direction: column; height: auto; padding: 10px 0; }
+    body { padding-top: 130px; }
 }
