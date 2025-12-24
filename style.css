@@ -144,19 +144,18 @@ body {
 .line-detail { width: 50px; height: 2px; background-color: #ff6b6b; }
 
 /* --- ASSISTÊNCIA (VERDE) --- */
-.assistencia { background-color: #58d68d; padding: 60px 0; color: white; }
+.assistencia { background-color: #58d68d; padding: 60px 0; color: white;}
 .assistencia-title { font-size: 1.4rem; margin-bottom: 40px; font-weight: 400; }
 .img-container { background: white; padding: 15px; border-radius: 10px; display: inline-block; }
 .img-container img { max-width: 100%; height: auto; }
 .zoom-hover img { transition: transform 0.5s ease; }
-.zoom-hover:hover img { transform: scale(1.05); }
+.zoom-hover:hover img { transform: scale(1.01); }
 
 /* --- CONTATO (VERMELHO) --- */
 .contato-bar { background-color: #e84c3d; padding: 50px 0; color: white; }
 .contato-bar h3 { font-size: 1.8rem; margin-bottom: 20px; }
 .whatsapp-box { font-size: 1.3rem; font-weight: 700; display: flex; justify-content: center; align-items: center; gap: 15px; }
 .whatsapp-box i { font-size: 2rem; }
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 .pulse { animation: pulse 2s infinite; }
 
 /* --- RODAPÉ --- */
@@ -170,4 +169,22 @@ footer { background-color: #222; color: #999; padding: 40px 0 20px; }
     .nav-flex { flex-direction: column; gap: 10px; }
     .main-title { font-size: 1.5rem; }
     body { padding-top: 120px; } /* Aumenta espaço no mobile pois o menu fica maior */
+}
+
+.hero {
+    /* Coloquei uma imagem de exemplo de Ar Condicionado aqui para você testar. 
+       Depois você pode trocar pelo nome do seu arquivo local (ex: 'fundo-ar.jpg') */
+    background-image: url('https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2727&auto=format&fit=crop'); 
+    
+    /* O SEGREDO ESTÁ AQUI EMBAIXO: */
+    background-attachment: fixed; 
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Importante para a imagem não repetir */
+    height: 550px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
